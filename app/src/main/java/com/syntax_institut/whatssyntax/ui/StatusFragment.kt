@@ -9,9 +9,7 @@ import com.syntax_institut.whatssyntax.adapter.StatusAdapter
 import com.syntax_institut.whatssyntax.data.Datasource
 import com.syntax_institut.whatssyntax.databinding.FragmentStatusBinding
 
-
-
-class StatusFragment: Fragment() {
+class StatusFragment : Fragment() {
 
     private lateinit var binding: FragmentStatusBinding
 
@@ -28,10 +26,4 @@ class StatusFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.rvStatus.adapter = StatusAdapter(requireContext(), Datasource().getContacts())
     }
-
-
-
-
-
-
 }

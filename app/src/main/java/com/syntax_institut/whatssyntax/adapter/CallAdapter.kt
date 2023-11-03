@@ -13,10 +13,10 @@ import com.syntax_institut.whatssyntax.databinding.ItemCallBinding
 class CallAdapter(
     val context: Context,
     val dataset: List<Call>
-): RecyclerView.Adapter<CallAdapter.CallViewHolder>() {
+) : RecyclerView.Adapter<CallAdapter.CallViewHolder>() {
 
     inner class CallViewHolder(val binding: ItemCallBinding) :
-            RecyclerView.ViewHolder(binding.root)
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CallViewHolder {
         val binding = ItemCallBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -38,19 +38,19 @@ class CallAdapter(
 
 
         holder.binding.ivCallPfeil.setImageResource(
-                if (item.incoming) {
-                    if (item.accepted) {
-                        R.drawable.icon_call_accepted
-                    } else R.drawable.icon_call_missed
-                } else if (item.accepted) {
-                    holder.binding.ivCallPfeil.rotation = 180f
+            if (item.incoming) {
+                if (item.accepted) {
                     R.drawable.icon_call_accepted
-                } else {
-                    holder.binding.ivCallPfeil.rotation = 180f
-                    R.drawable.icon_call_missed
-                }
+                } else R.drawable.icon_call_missed
+            } else if (item.accepted) {
+                holder.binding.ivCallPfeil.rotation = 180f
+                R.drawable.icon_call_accepted
+            } else {
+                holder.binding.ivCallPfeil.rotation = 180f
+                R.drawable.icon_call_missed
+            }
 
-            )
+        )
 
         holder.binding.contactCard.setOnClickListener {
             val phoneNumber = item.contact.number
@@ -58,12 +58,5 @@ class CallAdapter(
             intent.data = Uri.parse("tel:$phoneNumber")
             context.startActivity(intent)
         }
-
-
-
-
-
     }
-
-
 }

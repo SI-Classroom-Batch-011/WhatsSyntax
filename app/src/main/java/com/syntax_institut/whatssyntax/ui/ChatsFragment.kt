@@ -10,8 +10,7 @@ import com.syntax_institut.whatssyntax.adapter.ChatAdapter
 import com.syntax_institut.whatssyntax.data.Datasource
 import com.syntax_institut.whatssyntax.databinding.FragmentChatBinding
 
-class ChatsFragment: Fragment() {
-
+class ChatsFragment : Fragment() {
 
     private lateinit var binding: FragmentChatBinding
 
@@ -28,11 +27,5 @@ class ChatsFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rvChats.adapter = ChatAdapter(Datasource().getChats())
-
-
-
-
     }
-
-
 }

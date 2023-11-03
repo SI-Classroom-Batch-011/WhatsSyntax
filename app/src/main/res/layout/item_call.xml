@@ -33,6 +33,9 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/iv_call_benutzerbild"
             app:layout_constraintTop_toTopOf="@+id/iv_call_benutzerbild" />
 
@@ -43,13 +46,14 @@
             android:layout_marginStart="32dp"
             android:layout_marginBottom="16dp"
             android:text="TextView"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_call_benutzerbild" />
 
         <ImageView
             android:id="@+id/iv_call_pfeil"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:rotation="0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

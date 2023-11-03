@@ -11,9 +11,7 @@ import com.syntax_institut.whatssyntax.data.model.Contact
 import com.syntax_institut.whatssyntax.databinding.FragmentChatDetailBinding
 import com.syntax_institut.whatssyntax.data.model.Message
 
-class MessagDetailFragment: Fragment() {
-
-
+class MessagDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentChatDetailBinding
 
@@ -26,7 +24,6 @@ class MessagDetailFragment: Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -36,7 +33,8 @@ class MessagDetailFragment: Fragment() {
 
         var position = 0
         arguments?.let {
-            position = it.getInt("position") }
+            position = it.getInt("position")
+        }
 
         binding.rvChat.adapter = ChatDetailsAdapter(chats[position].messages)
 
@@ -48,7 +46,6 @@ class MessagDetailFragment: Fragment() {
 
             binding.textNachricht.text?.clear()
 
-            }
         }
-
+    }
 }

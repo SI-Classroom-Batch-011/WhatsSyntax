@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.syntax_institut.whatssyntax.databinding.FragmentStatusDetailBinding
 
-class StatusDetailsFrament: Fragment() {
+class StatusDetailsFrament : Fragment() {
 
     private lateinit var binding: FragmentStatusDetailBinding
 
@@ -18,7 +18,6 @@ class StatusDetailsFrament: Fragment() {
     ): View? {
         binding = FragmentStatusDetailBinding.inflate(layoutInflater)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,9 +26,5 @@ class StatusDetailsFrament: Fragment() {
         arguments?.let {
             binding.tvStatus.text = it.getString("status")
         }
-
-
     }
-
-
 }

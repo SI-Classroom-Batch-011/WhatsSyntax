@@ -17,9 +17,9 @@ import com.syntax_institut.whatssyntax.ui.MessagDetailFragment
 class ChatAdapter(
     //val context: Context,
     val dataset: List<Chat>
-): RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
+) : RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
 
-    inner class ChatViewHolder(val binding: ItemChatsBinding):
+    inner class ChatViewHolder(val binding: ItemChatsBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
@@ -40,11 +40,8 @@ class ChatAdapter(
 
         holder.binding.contactCard.setOnClickListener {
             holder.itemView.findNavController().navigate(
-                ChatsFragmentDirections.actionChatsFragmentToMessagDetailFragment(position))
+                ChatsFragmentDirections.actionChatsFragmentToMessagDetailFragment(position)
+            )
         }
-
-
     }
-
-
 }

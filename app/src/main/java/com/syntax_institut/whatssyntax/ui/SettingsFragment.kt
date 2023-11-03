@@ -14,7 +14,7 @@ import com.syntax_institut.whatssyntax.data.Datasource
 import com.syntax_institut.whatssyntax.data.model.Profile
 import com.syntax_institut.whatssyntax.databinding.FragmentStatusBinding
 
-class SettingsFragment: Fragment() {
+class SettingsFragment : Fragment() {
 
     private lateinit var binding: FragmentSettingsBinding
 
@@ -27,18 +27,14 @@ class SettingsFragment: Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-
 
         val mainActivity = activity as MainActivity
         val personNeu = mainActivity.datasurceKlein.getContacts().toMutableList()
 
-        binding.tvMyName.text = Datasource().getProfile().name
-        binding.tvMyNummer.text = Datasource().getProfile().number
+        //binding.tvMyName.text = Datasource().getProfile().name
+        //binding.tvMyNummer.text = Datasource().getProfile().number
 
         val datasource = Datasource()
 
@@ -52,8 +48,5 @@ class SettingsFragment: Fragment() {
             binding.tvMyName.text = profile.name
             binding.tvMyNummer.text = profile.number
         }
-
     }
-
-
 }

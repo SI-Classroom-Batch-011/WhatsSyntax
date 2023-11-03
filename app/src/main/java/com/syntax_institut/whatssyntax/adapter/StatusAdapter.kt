@@ -18,7 +18,6 @@ class StatusAdapter(
     val dataset: List<Contact>
 ) : RecyclerView.Adapter<StatusAdapter.StatusViewHolder>() {
 
-
     inner class StatusViewHolder(val binding: ItemStatusBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -26,7 +25,6 @@ class StatusAdapter(
         val binding = ItemStatusBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return StatusViewHolder(binding)
     }
-
 
     override fun onBindViewHolder(holder: StatusViewHolder, position: Int) {
         val item = dataset[position]
@@ -41,27 +39,21 @@ class StatusAdapter(
 
         val colorFilter: ColorFilter = ColorMatrixColorFilter(colorMatrix)
 
+        if (item.status != null) {
+            holder.binding.ivStatusPerson.clearColorFilter()
+            holder.binding.contactCard.setOnClickListener {
+                holder.itemView.findNavController().navigate(
+                    StatusFragmentDirections.actionStatusFragmentToStatusDetailsFrament(item.status!!.text)
 
-
-            if (item.status != null) {
-                holder.binding.ivStatusPerson.clearColorFilter()
-                holder.binding.contactCard.setOnClickListener {
-                    holder.itemView.findNavController().navigate(
-                        StatusFragmentDirections.actionStatusFragmentToStatusDetailsFrament(item.status!!.text)
-
-                    )
-                }
-
-            } else {
-                holder.binding.ivStatusPerson.colorFilter = colorFilter
+                )
             }
 
-
+        } else {
+            holder.binding.ivStatusPerson.colorFilter = colorFilter
+        }
     }
 
     override fun getItemCount(): Int {
         return dataset.size
     }
-
-
 }

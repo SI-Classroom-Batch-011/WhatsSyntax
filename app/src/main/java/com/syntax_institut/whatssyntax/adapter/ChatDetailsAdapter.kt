@@ -17,29 +17,34 @@ import com.syntax_institut.whatssyntax.databinding.ItemChatsBinding
 class ChatDetailsAdapter(
     val dataset: List<Message>
 
-): RecyclerView.Adapter<ViewHolder>() {
+) : RecyclerView.Adapter<ViewHolder>() {
 
     private val kontaktChat = 1
     private val ichChat = 2
 
-    inner class KontaktViewHolder(val binding: ItemChatKontaktBinding): RecyclerView.ViewHolder(binding.root)
-    inner class IchViewHolder(val  binding: ItemChatIchBinding): RecyclerView.ViewHolder(binding.root)
+    inner class KontaktViewHolder(val binding: ItemChatKontaktBinding) :
+        RecyclerView.ViewHolder(binding.root)
+
+    inner class IchViewHolder(val binding: ItemChatIchBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     override fun getItemViewType(position: Int): Int {
         val item = dataset[position]
-        return if (item.incoming){
+        return if (item.incoming) {
             kontaktChat
-        } else{
+        } else {
             ichChat
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return if (viewType == kontaktChat) {
-        val binding = ItemChatKontaktBinding.inflate(LayoutInflater.from(parent.context),parent, false)
-        KontaktViewHolder(binding)
+            val binding =
+                ItemChatKontaktBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            KontaktViewHolder(binding)
         } else {
-            val binding = ItemChatIchBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+            val binding =
+                ItemChatIchBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             IchViewHolder(binding)
         }
     }
@@ -53,11 +58,10 @@ class ChatDetailsAdapter(
 
         if (holder is KontaktViewHolder) {
             holder.binding.tvKontaktChatText.text = item.text
-        } else if(holder is IchViewHolder) {
+        } else if (holder is IchViewHolder) {
             holder.binding.tvIchChatText.text = item.text
         }
-
-        }
+    }
 }
 
 

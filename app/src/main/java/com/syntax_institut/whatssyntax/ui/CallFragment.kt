@@ -9,7 +9,7 @@ import com.syntax_institut.whatssyntax.adapter.CallAdapter
 import com.syntax_institut.whatssyntax.data.Datasource
 import com.syntax_institut.whatssyntax.databinding.FragmentCallBinding
 
-class CallFragment: Fragment() {
+class CallFragment : Fragment() {
 
     private lateinit var binding: FragmentCallBinding
 
@@ -22,11 +22,8 @@ class CallFragment: Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvCall.adapter = CallAdapter(requireContext(), Datasource().getCalls())
-
     }
-
 }
